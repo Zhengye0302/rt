@@ -12,65 +12,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 This tutorial will help you to determine the best test for your condition. The data set we are using here can be found at link. The data are continous and describe values of 6 kinds of biomarkers for 144 animals by treatment.
 
-### Flowchart
-
-Here is the flowcahrt of tests
-
-```{r grViz, echo=FALSE}
-library(DiagrammeR)
-grViz("digraph flowchart{
-node [fontname=Helvetica, shape = rounded]
-tab8 [label = '@@8']
-tab9 [label = '@@9']
-tab10 [label = '@@10']
-tab13 [label = '@@13']
-tab14 [label = '@@14']
-tab16 [label = '@@16']
-
-node [fontname = Helvetica, shape=oval]
-tab2 [label = '@@2']
-tab7 [label = '@@7']
-tab12 [label = '@@12']
-
-node [fontname = Helvetica, shape = plaintext]
-tab1 [label = '@@1']
-tab3 [label = '@@3']
-tab4 [label = '@@4']
-tab5 [label = '@@5']
-tab6 [label = '@@6']
-tab11 [label = '@@11']
-tab15 [label = '@@15']
-
-tab1 -> tab2;
-tab2 -> tab3;
-tab2 -> tab4;
-tab3 -> tab5 -> tab7;
-tab7 -> tab8;
-tab7 -> tab9;
-tab3 -> tab6 -> tab10;
-tab4 -> tab11 -> tab12;
-tab12 -> tab13;
-tab12 -> tab14;
-tab4 -> tab15 -> tab16;
-}
-  [1]: 'Continuous Data'
-  [2]: 'Normally Distributed or Skewed'
-  [3]: 'Normally distributed'
-  [4]: 'Skewed'
-  [5]: '2 groups'
-  [6]: '2+ groups'
-  [7]: 'Paired or Unpaired'
-  [8]: 'Two sample t test'
-  [9]: 'Paired t test'
-  [10]: 'ANOVA (post hoc)'
-  [11]: '2 groups'
-  [12]: 'Paired or Unpaired'
-  [13]: 'Wilcoxon Rank Sum'
-  [14]: 'Wilcoxon Signed Rank'
-  [15]: '2+ groups'
-  [16]: 'Kruskal-Waliis (post hoc)'
-      ")
-```
 
 ### normality check
 Many statistical tests require data to be normally distributed, this can be tested using a normality test, for example, Shapiro test. 
