@@ -19,12 +19,6 @@ The null hypothesis of normality test is that there is no significant departure 
 
 We are going to test if biomarker MMP3 with treatment 0 is normally distributed.
 
-```{r}
-biomarker=read.csv("/Users/deliciousway/Desktop/rExampleData.csv")
-shapiro.test(biomarker[which(biomarker$Treatment==0),"MMP3"])
-```
-The p-value = 0.4031, which is above 0.05. It suggests MMP3 with treatment 0 follows normal distrbution.
-
 ### paired or unpaired
 
 #### paired
@@ -48,11 +42,6 @@ it is important to use the correct test to prevent wrong results.
 2. Goal: We want to compare the means of MMP3 with treatment 0 and treatment 5, to see if they are equal.
 
 3. Code:
-```{r}
-shapiro.test(biomarker[biomarker$Treatment==5,"MMP3"])
-var.test(biomarker[biomarker$Treatment==0,"MMP3"], biomarker[biomarker$Treatment==5,"MMP3"])
-t.test(biomarker[biomarker$Treatment==0,"MMP3"], biomarker[biomarker$Treatment==5,"MMP3"], var.equal = T)
-```
 
 4. Interpret result:
 Shapiro tests show that MMP3 with treatment 0 and 5 are both normal. Equal variance test shows that variances are equal for two groups. Finally, two sample t test p-value = 3.519e-07, which is below 0.05. The conclusion is to reject the null hypothesis and that the means of two treatment groups are significantly different.
@@ -69,10 +58,6 @@ Checking the assumptions is very important. If the normality check or the equal 
 2. Goal:The null hypothesis for paired t test assumes that the mean difference of two groups equals to 0. We want to check whether or not the corresponding MMP3 and CTXII for treatment 0 have the same mean. 
 
 3. Code:
-```{r}
-shapiro.test(biomarker[biomarker$Treatment==0,"MMP3"] - biomarker[biomarker$Treatment==0,"CTXII"])
-t.test(biomarker[biomarker$Treatment==0,"MMP3"], biomarker[biomarker$Treatment==0,"CTXII"],paired = T)
-```
 
 4. Interpret result:
 Shapiro test shows that the difference between two groups follows normal, so we can continue to use paired t test. The paired t test p-value = 2.2e-16, which is below 0.05. The conclusion is to reject the null hypothesis and that the means of MMP3 and CTXII are significantly different.
